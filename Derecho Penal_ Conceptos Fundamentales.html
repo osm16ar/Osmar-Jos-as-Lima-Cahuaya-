@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Derecho Penal: Conceptos Fundamentales</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#d8d3cb;--ink:#2b2622;--muted:#5d554d;--card:#e9e5de;--acc:#6b4a33;--acc2:#7c8187;--line:#b2aba1;--deco:#6b4a33;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a2b2e;--ink:#e6e0d8;--muted:#b0a89e;--card:#37383c;--acc:#b58a63;--acc2:#9aa0a6;--line:#4c4d52;--deco:#a68a70}}
+:root[data-theme="dark"]{--bg:#2a2b2e;--ink:#e6e0d8;--muted:#b0a89e;--card:#37383c;--acc:#b58a63;--acc2:#9aa0a6;--line:#4c4d52;--deco:#a68a70}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Literata,Georgia,serif;line-height:1.65;min-height:100vh;overflow-x:hidden;position:relative;transition:background .4s}
+h1,h2,button{font-family:"Bricolage Grotesque","Trebuchet MS",sans-serif}
+.wrap{position:relative;z-index:2;max-width:820px;margin:0 auto;padding:28px 18px 60px}
+header{text-align:center;margin-bottom:18px}
+h1{font-size:clamp(1.9rem,6vw,3rem);line-height:1.1;margin:0 0 6px;font-weight:800}
+header p{margin:0;color:var(--muted)}
+.tools{display:flex;justify-content:center;margin-top:10px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 2px;margin-bottom:14px;scrollbar-width:thin}
+.tab,.chip,.nav button,.theme{cursor:pointer;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:.92rem;font-weight:500;white-space:nowrap;transition:transform .18s,background .25s,color .25s,border-color .25s}
+.tab:hover,.chip:hover,.nav button:hover:not(:disabled),.theme:hover{transform:translateY(-2px);border-color:var(--acc)}
+.tab[aria-selected=true],.chip[aria-pressed=true]{background:var(--acc);color:var(--bg);border-color:var(--acc)}
+:focus-visible{outline:3px solid var(--acc2);outline-offset:2px}
+.card{position:relative;z-index:2;background:var(--card);border:2px solid var(--line);border-radius:22px 22px 22px 6px;padding:26px 24px;min-height:340px;box-shadow:8px 8px 0 var(--acc2)}
+.card.in{animation:swap .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes swap{from{opacity:0;transform:translateX(var(--dir,40px)) rotate(var(--rot,1.5deg))}to{opacity:1;transform:none}}
+.ico{width:62px;height:62px;color:var(--acc);float:right;margin:0 0 8px 12px}
+h2{font-size:1.7rem;margin:0 0 8px}
+.lead{margin:0 0 16px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;clear:both}
+.detail{border-left:5px solid var(--acc2);padding:8px 14px;min-height:70px;background:color-mix(in srgb,var(--acc2) 10%,transparent);border-radius:0 12px 12px 0}
+.detail.pop{animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;position:relative;z-index:2}
+.nav button:disabled{opacity:.4;cursor:not-allowed}
+.nav .go{background:var(--acc);color:var(--bg);border-color:var(--acc)}
+.bar{flex:1;height:8px;margin:0 16px;background:var(--line);border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--acc2);transition:width .5s}
+.decor{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.deco{position:absolute;color:var(--deco);opacity:.45;pointer-events:none;animation:float 6s ease-in-out infinite}
+.deco svg{width:100%;height:100%}
+@keyframes float{50%{transform:translateY(-14px) rotate(4deg)}}
+@media(max-width:700px){.deco{opacity:.2}}
+.credits{position:fixed;z-index:10;right:0;top:40%;max-width:min(240px,70vw);background:var(--acc);color:var(--bg);padding:14px 20px 14px 18px;border-radius:16px 0 0 16px;box-shadow:-6px 6px 0 var(--acc2);transform:translateX(110%);transition:transform .7s cubic-bezier(.2,.8,.2,1);font-family:"Bricolage Grotesque","Trebuchet MS",sans-serif}
+.credits.show{transform:none}
+.credits small{display:block;font-size:.8rem;opacity:.85}
+.credits strong{font-size:1.15rem;line-height:1.25}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="scales" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 8v44M20 54h24M12 16h40M12 16l-8 20a8 8 0 0016 0zM52 16l-8 20a8 8 0 0016 0z"/><circle cx="32" cy="8" r="3"/></symbol>
+<symbol id="gavel" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="8" width="26" height="14" rx="3" transform="rotate(35 35 15)"/><path d="M30 26L12 44M8 56h30M14 48l8 8"/></symbol>
+<symbol id="book" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 14C24 8 14 8 6 10v40c8-2 18-2 26 4 8-6 18-6 26-4V10c-8-2-18-2-26 4zM32 14v40"/></symbol>
+<symbol id="shield" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6l20 8v16c0 14-9 23-20 28C21 53 12 44 12 30V14z"/><path d="M23 31l7 7 12-14"/></symbol>
+<symbol id="house" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 32L32 10l26 22M14 28v26h36V28M27 54V38h10v16"/></symbol>
+<symbol id="people" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="18" r="6"/><circle cx="44" cy="18" r="6"/><circle cx="32" cy="32" r="5"/><path d="M8 54v-12a12 12 0 0124 0v12M32 54V42a12 12 0 0124 0v12"/></symbol>
+<symbol id="globe" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="24"/><path d="M8 32h48M32 8c-14 14-14 34 0 48M32 8c14 14 14 34 0 48"/></symbol>
+<symbol id="key" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="32" r="10"/><path d="M30 32h28M50 32v10M42 32v7"/></symbol>
+<symbol id="courthouse" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24L32 8l24 16zM14 28v20M26 28v20M38 28v20M50 28v20M6 52h52M4 58h56"/></symbol>
+<symbol id="jury" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="14" r="5"/><circle cx="32" cy="12" r="5"/><circle cx="48" cy="14" r="5"/><path d="M8 34c0-9 4-13 8-13s8 4 8 13M24 34c0-9 4-13 8-13s8 4 8 13M40 34c0-9 4-13 8-13s8 4 8 13M6 34h52v20H6zM18 34v20M32 34v20M46 34v20"/></symbol>
+<symbol id="judge" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="26" r="9"/><path d="M22 18c-8 4-10 16-5 26M42 18c8 4 10 16 5 26M14 60c0-10 8-15 18-15s18 5 18 15zM26 46l6 8 6-8"/><circle cx="17" cy="30" r="3"/><circle cx="47" cy="30" r="3"/></symbol>
+<symbol id="scroll" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h30v42a6 6 0 006 6H20a6 6 0 01-6-6zM22 20h14M22 28h14M22 36h8M44 6c10 0 16 8 14 18-8-2-14-8-14-18zM58 8L38 32"/></symbol>
+<symbol id="bars" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="48" height="48" rx="3"/><path d="M32 8v48M8 32h48M20 8v48M44 8v48"/></symbol>
+<symbol id="briefcase" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="22" width="52" height="34" rx="4"/><path d="M22 22v-8h20v8M6 36h52M28 36v7h8v-7"/></symbol>
+<symbol id="cuffs" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="42" r="12"/><circle cx="46" cy="42" r="12"/><path d="M18 30v-8M46 30v-8M18 22c0-8 6-10 10-10M46 22c0-8-6-10-10-10M28 12h8"/></symbol>
+<symbol id="cap" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 12L4 26l28 14 28-14zM16 33v12c8 8 24 8 32 0V33M58 27v18M58 45l-3 7h6z"/></symbol>
+<symbol id="lady" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="12" r="5"/><path d="M26 12h8M24 22h12l4 34H20zM38 24l8-12M40 8h18M44 8l-4 10h8zM56 8l-4 10h8zM16 34v22"/></symbol>
+<symbol id="lawyer" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="18" r="10"/><path d="M10 60c0-14 10-22 22-22s22 8 22 22zM32 38l-4 8 4 10 4-10z"/></symbol>
+</defs>
+</svg>
+
+<aside class="credits" id="credits" aria-label="Créditos"><small>Créditos</small><strong>6to A<br>Lima Osmar</strong></aside>
+<div class="decor" id="decor" aria-hidden="true"></div>
+<div class="wrap">
+
+  <header>
+    <h1>El Derecho Penal: conceptos fundamentales</h1>
+    <p>Basado en la doctrina penal clásica y moderna</p>
+    <div class="tools"><button class="theme" id="theme" type="button">Cambiar tema</button></div>
+  </header>
+
+  <div class="tabs" id="tabs" role="tablist" aria-label="Temas"></div>
+  <article class="card" id="card" aria-live="polite"></article>
+  <div class="nav">
+    <button id="prev" type="button">Anterior</button>
+    <div class="bar"><i id="fill"></i></div>
+    <button id="next" class="go" type="button">Siguiente</button>
+  </div>
+</div>
+
+<script>
+const S=[
+{t:"Definición",tab:"Definición",i:"book",lead:"Parte del orden jurídico que determina los delitos y sus penas. Busca proteger bienes jurídicos y resocializar.",c:[
+["Según Welzel","Hans Welzel: el Derecho Penal determina la acción delictuosa y le impone penas o medidas."],
+["Ley penal","Tiene una hipótesis, que describe la acción delictiva, y una consecuencia, que fija la sanción."],
+["Norma de cultura","Reglas morales y éticas que sustentan el derecho penal, como los Diez Mandamientos o «ama sua, ama llulla, ama khella». Orientan la conducta y preservan los bienes jurídicos."],
+["Ciencia penal","También llamada dogmática penal. Analiza y sistematiza las leyes penales para lograr una aplicación justa, coherente y previsible."]]},
+{t:"Misión del Derecho Penal",tab:"Misión",i:"scales",lead:"Cuatro tareas que sostienen la vida en sociedad.",c:[
+["Convivencia","Garantiza la convivencia pacífica entre los individuos."],
+["Bienes esenciales","Defiende los bienes jurídicos esenciales."],
+["Orden y paz","Asegura el orden y la paz social."],
+["Valores","Expresa los valores jurídicos de una época."]]},
+{t:"Bienes jurídicos",tab:"Bienes jurídicos",i:"shield",lead:"Lo que el Derecho Penal protege. El Estado lo hace mediante sanciones.",c:[
+["Del individuo","Vida, salud, libertad, honor, patrimonio y trabajo."],
+["De la colectividad","Orden, paz, familia, Estado, seguridad, justicia y democracia."],
+["Cómo se protegen","El Estado protege estos bienes mediante sanciones."]]},
+{t:"Principio de subsidiariedad",tab:"Subsidiariedad",i:"house",lead:"El Derecho Penal es el último recurso: «ultima ratio».",c:[
+["Último recurso","El Derecho Penal interviene solo cuando todo lo demás falla."],
+["Otras ramas","Otras ramas del Derecho buscan resolver primero los conflictos."],
+["Cuándo se sanciona","Se aplica la sanción penal cuando las demás vías son insuficientes."]]},
+{t:"Ius puniendi: el poder de castigar",tab:"Ius puniendi",i:"gavel",lead:"Es la potestad del Estado para imponer sanciones. Debe estar limitado por principios y garantías.",c:[
+["Qué es","La potestad del Estado para imponer sanciones."],
+["Cuándo se ejerce","Frente a conductas que amenazan la convivencia social."],
+["Sus límites","Dos principios fundamentales: legalidad y culpabilidad. Resguardan la dignidad y la libertad del ciudadano."]]},
+{t:"Principio de legalidad",tab:"Legalidad",i:"key",lead:"«Nullum crimen, nulla poena sine lege»: no hay crimen ni pena sin ley.",c:[
+["La regla","Nadie puede ser condenado ni sometido a medida de seguridad por un hecho que no esté expresamente previsto como delito por una ley vigente al tiempo en que se cometió."],
+["Garantía criminal","Solo la ley define qué es delito."],
+["Garantía penal","Solo la ley fija la pena aplicable."],
+["Prohibiciones","Prohíbe la analogía, la costumbre y la retroactividad, salvo en beneficio del reo."]]},
+{t:"Principio de culpabilidad",tab:"Culpabilidad (principio)",i:"people",lead:"«Nullum crimen, nulla poena sine culpa»: solo se sanciona al autor culpable.",c:[
+["Sin culpa no hay delito","No hay delito sin culpa."],
+["Pena proporcional","La pena debe ser proporcional a la culpabilidad."],
+["Qué es la pena","El medio jurídico más enérgico de defensa del individuo y la comunidad. Toda pena es aflictiva: priva o disminuye la libertad (presidio) o el patrimonio (multa)."]]},
+{t:"Teorías sobre la pena",tab:"Teorías de la pena",i:"scales",lead:"¿Para qué se castiga? Toca cada teoría.",c:[
+["Retribución","Castigo por el mal cometido."],
+["Prevención especial","Evitar la reincidencia del autor."],
+["Prevención general","Disuasión social: que nadie más cometa el delito."],
+["Teoría unitaria","Combina los tres fines anteriores."]]},
+{t:"El delito y sus elementos",tab:"Delito",i:"gavel",lead:"Hecho punible: acción típica, antijurídica y culpable, sancionada por ley.",c:[
+["Acción","Conducta humana voluntaria. Sin voluntad no hay acción: fuerza irresistible, reflejo, sueño."],
+["Tipicidad","Adecuación del hecho al tipo penal, que es la descripción legal exacta del delito. Hay tipos generales, especiales, objetivos, subjetivos, normativos y descriptivos."],
+["Antijuridicidad","Conducta contraria al derecho. Desaparece con causas de justificación: legítima defensa, cumplimiento de un deber, estado de necesidad."],
+["Culpabilidad","Supone imputabilidad, comprensión de lo injusto y libre decisión. Sus formas son el dolo y la culpa."]]},
+{t:"Dolo y culpa",tab:"Dolo y culpa",i:"globe",lead:"Las dos formas de la culpabilidad.",c:[
+["Dolo directo","El autor quiere el resultado."],
+["Dolo de consecuencias necesarias","El autor acepta otros daños que acompañan necesariamente su fin."],
+["Dolo eventual","El autor acepta el riesgo de causar el resultado."],
+["Culpa consciente","Prevé el daño, pero confía en evitarlo."],
+["Culpa inconsciente","No prevé el daño que podía evitar. En toda culpa hay falta de cuidado, no intención."]]},
+{t:"Conclusión",tab:"Conclusión",i:"shield",lead:"El Derecho Penal protege a la sociedad y limita el poder punitivo.",c:[
+["Qué busca","Justicia, paz y dignidad humana."],
+["Su misión","Prevenir, sancionar y reeducar."]]}
+];
+const $=id=>document.getElementById(id);
+let cur=0,last=0;
+const tabs=$("tabs"),card=$("card");
+S.forEach((s,k)=>{const b=document.createElement("button");b.className="tab";b.type="button";b.role="tab";b.textContent=s.tab;b.onclick=()=>go(k);tabs.appendChild(b)});
+function go(k){
+  if(k<0||k>=S.length)return;
+  last=cur;cur=k;
+  const s=S[k];
+  card.style.setProperty("--dir",k>=last?"40px":"-40px");
+  card.style.setProperty("--rot",k>=last?"1.5deg":"-1.5deg");
+  card.innerHTML=`<svg class="ico"><use href="#${s.i}"/></svg><h2></h2><p class="lead"></p><div class="chips"></div><div class="detail" id="det"><em>Toca un botón para ver el detalle.</em></div>`;
+  card.querySelector("h2").textContent=s.t;
+  card.querySelector(".lead").textContent=s.lead;
+  const box=card.querySelector(".chips"),det=$("det");
+  s.c.forEach(([n,d],j)=>{
+    const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=n;b.setAttribute("aria-pressed","false");
+    b.onclick=()=>{box.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");
+      det.classList.remove("pop");void det.offsetWidth;det.textContent=d;det.classList.add("pop")};
+    box.appendChild(b);
+  });
+  card.classList.remove("in");void card.offsetWidth;card.classList.add("in");
+  [...tabs.children].forEach((t,j)=>{t.setAttribute("aria-selected",j===k);if(j===k)t.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"})});
+  $("prev").disabled=k===0;
+  $("next").disabled=k===S.length-1;
+  $("fill").style.width=((k+1)/S.length*100)+"%";
+}
+$("prev").onclick=()=>go(cur-1);
+$("next").onclick=()=>go(cur+1);
+document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")go(cur+1);if(e.key==="ArrowLeft")go(cur-1)});
+$("theme").onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.dataset.theme=dark?"light":"dark"};
+const D=[["scales",1,3,92],["courthouse",0,5,96],["gavel",1,14,84],["jury",0,19,90],["lady",1,25,96],["scroll",0,32,80],["cuffs",1,38,86],["judge",0,44,90],["book",1,50,84],["bars",0,56,76],["briefcase",1,62,88],["cap",0,68,90],["lawyer",1,74,86],["shield",0,80,84],["key",1,86,78],["scales",0,91,88]];
+D.forEach(([n,r,t,z],i)=>{const d=document.createElement("div");d.className="deco";
+  d.style.cssText=`${r?"right":"left"}:${1+(i%3)*2}%;top:${t}%;width:${z}px;height:${z}px;animation-delay:-${(i*1.3)%6}s;animation-duration:${5+(i%4)}s`;
+  d.innerHTML=`<svg><use href="#${n}"/></svg>`;$("decor").appendChild(d)});
+go(0);
+const cr=$("credits");setTimeout(()=>cr.classList.add("show"),600);setTimeout(()=>cr.classList.remove("show"),10600);
+</script>
+</body>
+</html>
